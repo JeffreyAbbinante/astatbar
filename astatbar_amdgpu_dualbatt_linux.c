@@ -28,7 +28,7 @@ main(void)
 {
 	//variable declarations
 	bool ac;
-	char month_str[9], current_time[15]; //the longest month name is september [9] and 15 is the smallest I can make current_time without stack smashing
+	char month_str[10], current_time[15]; //the longest month name is september [10] (with delimiter) and 15 is the smallest I can make current_time without stack smashing
 	double batperc, brightness;
 	FILE *ac_online, *bat0_energy_full, *bat0_energy_now, *bat1_energy_full, *bat1_energy_now, *amdgpu_bl0_brightness;
 	int bat0ef, bat0en, bat1ef, bat1en;
