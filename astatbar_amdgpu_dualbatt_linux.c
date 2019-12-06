@@ -59,10 +59,10 @@ main(void)
 		printf("AC:(+) BAT:(+)%.2f%% BRIGHTNESS:%.2f%% TIME:%s %d %d %02d:%02d:%02d EST", batperc, brightness, month_str[tm.tm_mon], tm.tm_mday, tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
 	//closing files and exiting
 	fclose(ac_online);
+	fclose(amdgpu_bl0_brightness);
 	fclose(bat0_energy_full);
 	fclose(bat0_energy_now);
 	fclose(bat1_energy_full);
 	fclose(bat1_energy_now);
-	fclose(amdgpu_bl0_brightness);
 	return(0);
 }
