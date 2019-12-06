@@ -20,7 +20,7 @@ clang -std=c99 -O3 -march=native -o ~/.astatbar astatbar*.c
 
 Note: Passing -O3, -march=native, and -flto are optional but could slightly improve the speed of the program.
 
-3. Add the following to your .xinitrc: 
+3. Add the following to your .xinitrc (Linux) or .xsession (OpenBSD): 
 ```
 while true; do
   xsetroot -name "$(./.astatbar)"
