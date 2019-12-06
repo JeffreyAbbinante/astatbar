@@ -52,11 +52,11 @@ main(void)
 	batperc = (double)(bat0en + bat1en) / (bat0ef + bat1ef) * 100;
 	brightness = (brightness / 255) * 100;
 	if (!ac)
-		printf("AC:(-) BAT:(-)%.2f%% BRIGHTNESS:%.2f%% TIME:%s %d %d %02d:%02d:%02d EST", batperc, brightness, month_str[tm.tm_mon], tm.tm_mday, tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
+		printf("AC:(-) BAT:(-)%.2f%% BRIGHTNESS:%.2f%% TIME:%s %d, %d %02d:%02d:%02d EST", batperc, brightness, month_str[tm.tm_mon], tm.tm_mday, tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
 	else if (ac && batperc > 98)
-		printf("AC:(+) BAT:FULL BRIGHTNESS:%.2f%% TIME:%s %d %d %02d:%02d:%02d EST", brightness, month_str[tm.tm_mon], tm.tm_mday, tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
+		printf("AC:(+) BAT:FULL BRIGHTNESS:%.2f%% TIME:%s %d, %d %02d:%02d:%02d EST", brightness, month_str[tm.tm_mon], tm.tm_mday, tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
 	else
-		printf("AC:(+) BAT:(+)%.2f%% BRIGHTNESS:%.2f%% TIME:%s %d %d %02d:%02d:%02d EST", batperc, brightness, month_str[tm.tm_mon], tm.tm_mday, tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
+		printf("AC:(+) BAT:(+)%.2f%% BRIGHTNESS:%.2f%% TIME:%s %d, %d %02d:%02d:%02d EST", batperc, brightness, month_str[tm.tm_mon], tm.tm_mday, tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
 	//closing files and exiting
 	fclose(ac_online);
 	fclose(amdgpu_bl0_brightness);
