@@ -28,7 +28,7 @@ main(void)
 {
 	//variable declarations
 	bool ac;
-	char month_str[10], current_time[15]; //the longest month name is september [10] (with delimiter) and 15 is the smallest I can make current_time without stack smashing
+	const char *month_str[] = { "January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 	double batperc, brightness;
 	FILE *ac_online, *bat0_energy_full, *bat0_energy_now, *bat1_energy_full, *bat1_energy_now, *amdgpu_bl0_brightness;
 	int bat0ef, bat0en, bat1ef, bat1en;
@@ -51,51 +51,10 @@ main(void)
 	//program logic
 	batperc = (double)(bat0en + bat1en) / (bat0ef + bat1ef) * 100;
 	brightness = (brightness / 255) * 100;
-	switch (tm.tm_mon) {
-	case 0:
-		sprintf(month_str, "January");
-		break;
-	case 1:
-		sprintf(month_str, "Febuary");
-		break;
-	case 2:
-		sprintf(month_str, "March");
-		break;
-	case 3:
-		sprintf(month_str, "April");
-		break;
-	case 4:
-		sprintf(month_str, "May");
-		break;
-	case 5:
-		sprintf(month_str, "June");
-		break;
-	case 6:
-		sprintf(month_str, "July");
-		break;
-	case 7:
-		sprintf(month_str, "August");
-		break;
-	case 8:
-		sprintf(month_str, "September");
-		break;
-	case 9:
-		sprintf(month_str, "October");
-		break;
-	case 10:
-		sprintf(month_str, "November");
-		break;
-	case 11:
-		sprintf(month_str, "December");
-		break;
-	default:
-		break;
-	}
-	sprintf(current_time, "%d %d %02d:%02d:%02d", tm.tm_mday, tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
 	if (!ac)
-		printf("AC:(-) BAT:%.2f%% BRIGHTNESS:%.2f%% TIME:%s %s EST", batperc, brightness, month_str, current_time);
+		printf("AC:(-) BAT:%.2f%% BRIGHTNESS:%.2f%% TIME:%s %d %d %02d:%02d:%02d EST", batperc, brightness, month_str[tm.tm_mon], tm.tm_mday, tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
 	else
-		printf("AC:(+) BAT:%.2f%% BRIGHTNESS:%.2f%% TIME:%s %s EST", batperc, brightness, month_str, current_time);
+		printf("AC:(+) BAT:%.2f%% BRIGHTNESS:%.2f%% TIME:%s %d %d %02d:%02d:%02d EST", batperc, brightness, month_str[tm.tm_mon], tm.tm_mday, tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
 	//closing files and exiting
 	fclose(ac_online);
 	fclose(bat0_energy_full);
