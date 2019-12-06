@@ -14,11 +14,14 @@ Installing:
 gcc -std=c99 -O3 -march=native -flto -o ~/.astatbar astatbar*.c
 ```
 Note: Passing -O3, -march=native, and -flto are optional but could slightly improve the speed of the program.
+
 3. Add the following to your .xinitrc: 
 ```
 while true; do
   xsetroot -name "$(./.astatbar)"
+  sleep 1
 done &
 ```
+Note: Set sleep to the frequency you want the statusbar to refresh. In this example, it is once per second.
 
 4. Reload dwm.
