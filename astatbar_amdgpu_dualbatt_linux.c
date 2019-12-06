@@ -30,31 +30,33 @@ main(void)
 	bool ac;
 	const char *month_str[] = { "January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 	double batperc, brightness;
-	FILE *ac_online, *bat0_energy_full, *bat0_energy_now, *bat1_energy_full, *bat1_energy_now, *amdgpu_bl0_brightness;
+	FILE *ac_online, *amdgpu_bl0_brightness, *bat0_energy_full, *bat0_energy_now, *bat1_energy_full, *bat1_energy_now;
 	int bat0ef, bat0en, bat1ef, bat1en;
 	time_t date = time(NULL);
 	struct tm tm =*localtime(&date);
 	//opening files
 	ac_online = fopen("/sys/class/power_supply/AC/online", "r");
+	amdgpu_bl0_brightness = fopen("/sys/class/backlight/amdgpu_bl0/brightness", "r");
 	bat0_energy_full = fopen("/sys/class/power_supply/BAT0/energy_full", "r");
 	bat0_energy_now = fopen("/sys/class/power_supply/BAT0/energy_now", "r");
 	bat1_energy_full = fopen("/sys/class/power_supply/BAT1/energy_full", "r");
         bat1_energy_now = fopen("/sys/class/power_supply/BAT1/energy_now", "r");
-	amdgpu_bl0_brightness = fopen("/sys/class/backlight/amdgpu_bl0/brightness", "r");
 	//reading contents
 	fscanf(ac_online, "%d", &ac);
+	fscanf(amdgpu_bl0_brightness, "%lf", &brightness);
 	fscanf(bat0_energy_full, "%d", &bat0ef);
 	fscanf(bat0_energy_now, "%d", &bat0en);
 	fscanf(bat1_energy_full, "%d", &bat1ef);
         fscanf(bat1_energy_now, "%d", &bat1en);
-	fscanf(amdgpu_bl0_brightness, "%lf", &brightness);
 	//program logic
 	batperc = (double)(bat0en + bat1en) / (bat0ef + bat1ef) * 100;
 	brightness = (brightness / 255) * 100;
 	if (!ac)
-		printf("AC:(-) BAT:%.2f%% BRIGHTNESS:%.2f%% TIME:%s %d %d %02d:%02d:%02d EST", batperc, brightness, month_str[tm.tm_mon], tm.tm_mday, tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
+		printf("AC:(-) BAT:(-)%.2f%% BRIGHTNESS:%.2f%% TIME:%s %d %d %02d:%02d:%02d EST", batperc, brightness, month_str[tm.tm_mon], tm.tm_mday, tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
+	else if (ac && batperc > 98)
+		printf("AC:(+) BAT:FULL BRIGHTNESS:%.2f%% TIME:%s %d %d %02d:%02d:%02d EST", brightness, month_str[tm.tm_mon], tm.tm_mday, tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
 	else
-		printf("AC:(+) BAT:%.2f%% BRIGHTNESS:%.2f%% TIME:%s %d %d %02d:%02d:%02d EST", batperc, brightness, month_str[tm.tm_mon], tm.tm_mday, tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
+		printf("AC:(+) BAT:(+)%.2f%% BRIGHTNESS:%.2f%% TIME:%s %d %d %02d:%02d:%02d EST", batperc, brightness, month_str[tm.tm_mon], tm.tm_mday, tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
 	//closing files and exiting
 	fclose(ac_online);
 	fclose(bat0_energy_full);
