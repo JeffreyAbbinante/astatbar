@@ -10,9 +10,9 @@ To Do/Wishlist:
 * Unified Source File
 * Volume Support
 * Network Detection
-* Easier way to move statusbar elements around without extensive source code editing.
+* Easier way to move statusbar elements around without extensive source code editing
 * Setting root window without xsetroot
-* OpenBSD support
+* OpenBSD and FreeBSD support (totally not an OpenBSD fanboy at all ;) )
 
 Installing:
 1. Download the file corresponding to your computer.
