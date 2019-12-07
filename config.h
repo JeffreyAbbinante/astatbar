@@ -22,6 +22,9 @@
 #ifndef ASTATBAR_CONFIG_H
 #define ASTATBAR_CONFIG_H
 
+//uncomment this to set astatbar in openbsd mode, linux mode otherwise
+//#define OPENBSD
+
 //uncomment this to set astatbar in laptop mode, desktop mode otherwise
 //#define LAPTOP
 
