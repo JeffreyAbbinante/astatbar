@@ -10,7 +10,7 @@ To Do/Wishlist:
 * Unified Source File
 * Volume Support
 * Network Detection
-* Easier say to move statusbar elements around without extensive source code editing.
+* Easier way to move statusbar elements around without extensive source code editing.
 * Setting root window without xsetroot
 * OpenBSD support
 
