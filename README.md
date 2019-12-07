@@ -3,7 +3,7 @@ About:
 astatbar is a statusbar replacement for dwm
 
 Contributing:
-There is still a ton of work to be done. Although this isn't designed to be an advanced statusbar, I want this to be usable for most people. Please provide pull requests and feedback for my consideration.
+There is still a ton of work to be done. Although this is not designed to be an advanced statusbar, I want this to be usable for most people. Please provide pull requests and feedback for my consideration.
 
 Installing:
 1. Download the file corresponding to your computer.
