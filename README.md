@@ -14,9 +14,20 @@ To Do/Wishlist:
 
 IDEA: 
 ```
-#DEFINE STATUSBAR_ELEMENTS = "whatever number you want";
+in config.h:
+
+...
+#DEFINE STATUSBAR_ELEMENTS_"whatever number you want";
 char element1[] = date;
 char element2[] = battery;
+...
+
+in astatbar.c:
+...
+#ifdef STATUSBAR_ELEMENTS_1
+  printf("%s", element1);
+#endif
+...
 ```
 * Setting root window without xsetroot
 * OpenBSD and FreeBSD support (totally not an OpenBSD fanboy at all ;) )
