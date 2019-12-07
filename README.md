@@ -15,7 +15,6 @@ To Do/Wishlist:
 IDEA: 
 ```
 in config.h:
-
 ...
 #DEFINE STATUSBAR_ELEMENTS_"whatever number you want";
 char element1[] = date;
