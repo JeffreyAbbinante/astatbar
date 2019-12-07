@@ -11,7 +11,7 @@ Installing:
 
 GCC (Linux):
 ```
-gcc -std=c99 -O3 -march=native -flto -o ~/.astatbar astatbar*.c
+gcc -std=c99 -O3 -march=native -flto=$(nproc) -o ~/.astatbar astatbar*.c
 ```
 Clang (OpenBSD):
 ```
