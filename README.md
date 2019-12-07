@@ -11,6 +11,13 @@ To Do/Wishlist:
 * Volume Support
 * Network Detection
 * Easier way to move statusbar elements around without extensive source code editing
+
+IDEA: 
+```
+#DEFINE STATUSBAR_ELEMENTS = "whatever number you want";
+char element1[] = date;
+char element2[] = battery;
+```
 * Setting root window without xsetroot
 * OpenBSD and FreeBSD support (totally not an OpenBSD fanboy at all ;) )
 
