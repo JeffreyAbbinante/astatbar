@@ -1,5 +1,5 @@
 /*
- * config.h: configuration file for astatbar.c
+ * astatusbar.c: a statusbar replacement for dwm
  *
  * Copyright (c) 2019 Jeffrey Abbinante
  *
@@ -16,22 +16,17 @@
  *
  */
 
-#ifndef ASTATBAR_CONFIG_H
-#define ASTATBAR_CONFIG_H
+#include <stdio.h>
+#include <time.h>
 
-//modify this to set the output of the timezone_str string, "UTC" otherwise
-const char timezone_str[] = "UTC";
+#include "config.h"
 
-//uncomment this to set astatbar in openbsd mode, linux mode otherwise
-//#define OPENBSD
+const char *month_str[] = { "January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 
-//uncomment this to set astatbar in laptop mode, desktop mode otherwise
-//#define LAPTOP
-
-//uncomment this to set astatbar in dual battery mode, single battery mode otherwise (depends on laptop mode being enabled)
-//#define DUAL_BAT
-
-//uncomment this to set astatbar in amdgpu mode, intelgpu mode otherwise (depends on laptop mode being enabled)
-//#define AMDGPU
-
-#endif
+int
+main(void)
+{
+	time_t date = time(NULL);
+	struct tm tm = *localtime(&date);
+	printf("TIME:%s %d, %d %02d:%02d:%02d %s", month_str[tm.tm_mon], tm.tm_mday, tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec, timezone_str);
+}
