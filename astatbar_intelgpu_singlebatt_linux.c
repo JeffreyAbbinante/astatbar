@@ -28,7 +28,7 @@ main(void)
 {
 	//variable declarations
 	bool ac;
-	const char *month_str[] = { "January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+	const char *month_str[] = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 	double batperc, brightness;
 	FILE *ac_online, *intel_backlight_brightness, *bat0_energy_full, *bat0_energy_now;
 	int bat0ef, bat0en;

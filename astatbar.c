@@ -21,7 +21,7 @@
 
 #include "config.h"
 
-const char *month_str[] = { "January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+const char *month_str[] = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 
 int
 main(void)
