@@ -19,7 +19,6 @@
  * Tested on ThinkPad X1C7.
  */
 
-#include <stdbool.h>
 #include <stdio.h>
 #include <time.h>
 
@@ -27,11 +26,10 @@ int
 main(void)
 {
 	//variable declarations
-	bool ac;
 	const char *month_str[] = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 	double batperc, brightness;
 	FILE *ac_online, *intel_backlight_brightness, *bat0_energy_full, *bat0_energy_now;
-	int bat0ef, bat0en;
+	int ac, bat0ef, bat0en;
 	time_t date = time(NULL);
 	struct tm tm =*localtime(&date);
 	//opening files
@@ -47,9 +45,9 @@ main(void)
 	//program logic
 	batperc = (double)(bat0en) / (bat0ef) * 100;
 	brightness = (brightness / 24242) * 100;
-	if (!ac)
+	if (ac == 0)
 		printf("AC:(-) BAT:(-)%.2f%% BRIGHTNESS:%.2f%% TIME:%s %d, %d %02d:%02d:%02d EST", batperc, brightness, month_str[tm.tm_mon], tm.tm_mday, tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
-	else if (ac && batperc > 98)
+	else if (ac == 1 && batperc > 98)
 		printf("AC:(+) BAT:FULL BRIGHTNESS:%.2f%% TIME:%s %d, %d %02d:%02d:%02d EST", brightness, month_str[tm.tm_mon], tm.tm_mday, tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
 	else
 		printf("AC:(+) BAT:(+)%.2f%% BRIGHTNESS:%.2f%% TIME:%s %d, %d %02d:%02d:%02d EST", batperc, brightness, month_str[tm.tm_mon], tm.tm_mday, tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
