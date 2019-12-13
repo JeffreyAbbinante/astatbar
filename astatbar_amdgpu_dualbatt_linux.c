@@ -1,6 +1,6 @@
 /*
- * astatusbar is a statusbar replacement for dwm
- * astatusbar_amdgpu_dualbatt_linux.c: astatus bar for laptops with amdgpus and two batteries on linux
+ * astatbar is a statusbar replacement for dwm
+ * astatbar_amdgpu_dualbatt_linux.c: a statusbar for laptops with amdgpus and two batteries on linux
  *
  * Copyright (c) 2019 Jeffrey Abbinante
  *

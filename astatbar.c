@@ -1,5 +1,5 @@
 /*
- * astatusbar.c: a statusbar replacement for dwm
+ * astatbar.c: a statusbar replacement for dwm
  *
  * Copyright (c) 2019 Jeffrey Abbinante
  *

@@ -1,6 +1,6 @@
 /*
- * astatusbar is a statusbar replacement for dwm
- * astatusbar_intelgpu_singlbatt_linux.c: astatus bar for laptops with intel gpus and one battery on linux
+ * astatbar is a statusbar replacement for dwm
+ * astatbar_intelgpu_singlbatt_linux.c: a statusbar for laptops with intel gpus and one battery on linux
  *
  * Copyright (c) 2019 Jeffrey Abbinante
  *
